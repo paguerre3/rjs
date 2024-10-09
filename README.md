@@ -1,10 +1,10 @@
 # rjs
 
-If you're looking for flexibility and scalability with a robust ecosystem, **React.js or Next.js** would be suitable choices, especially if SEO is a concern.
+If you're looking for flexibility and scalability with a robust ecosystem, **React.js or Next.js** **"libraries"** would be suitable choices, especially if SEO is a concern.
 
-For enterprise-level applications or when you need a complete framework out of the box, **Angular** is ideal.
+For enterprise-level applications or when you need a complete **"framework"** out of the box, **Angular** is ideal.
 
-If rapid prototyping and a no-code approach align with your project needs, consider **v0.dev (no code and IA oriented)**. 
+If rapid prototyping and a **"no-code approach IA Oriented"** align with your project needs, consider **v0.dev**. 
 
 Ultimately, the best choice depends on your project specifics, team skills, and long-term goals.
 
@@ -72,6 +72,8 @@ Ultimately, the best choice depends on your project specifics, team skills, and 
 [29. Unit Testing with Jest and Enzyme](#29-unit-testing-with-jest-and-enzyme)
 
 [30. Handling Side Effects with Middleware](#30-handling-side-effects-with-middleware)
+
+[31. Pre-requisites](#31-pre-requisites)
 
 ---
 ### 1. **Components**
@@ -1118,3 +1120,33 @@ export const fetchData = () => {
 
 By understanding and applying these key concepts, you'll be well-equipped to build efficient, scalable, and maintainable React applications. Each concept plays a crucial role in the React ecosystem, and mastering them will enhance your development skills significantly.
 
+---
+
+### 31. **Pre-requisites**
+
+To install `Node.js` on Ubuntu via the command line, follow these steps:
+
+1. **Update the package list**:
+   ```bash
+   sudo apt update
+   ```
+
+2. **Install the NodeSource repository**:
+   To get the latest version, first add the NodeSource PPA for Node.js:
+   ```bash
+   curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+   ```
+
+3. **Install Node.js**:
+   After adding the repository, install Node.js with:
+   ```bash
+   sudo apt install -y nodejs
+   ```
+
+4. **Verify the installation**:
+   Once the installation is done, confirm the version installed:
+   ```bash
+   node -v
+   ```
+
+This will install the latest stable release of Node.js (currently v22.x).
