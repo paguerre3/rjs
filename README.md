@@ -11,6 +11,69 @@ Ultimately, the best choice depends on your project specifics, team skills, and 
 ---
 # React compendium
 
+**Index:**
+
+[1. Components](#1-components)
+
+[2. JSX (JavaScript XML)](#2-jsx-javascript-xml)
+
+[3. Props (Properties)](#3-props-properties)
+
+[4. State](#4-state)
+
+[5. Lifecycle Methods](#5-lifecycle-methods)
+
+[6. Hooks](#6-hooks)
+
+[7. Virtual DOM](#7-virtual-dom)
+
+[8. Reconciliation](#8-reconciliation)
+
+[9. Conditional rendering](#9-conditional-rendering)
+
+[10. Lists and keys](#10-lists-and-keys)
+
+[11. Context API](#11-context-api)
+
+[12. React Router](#12-react-router)
+
+[13. Higher Order Components (HOC)](#13-higher-order-components-hoc)
+
+[14. Fragments](#14-fragments)
+
+[15. Portals](#15-portals)
+
+[16. Error Boundaries](#16-error-boundaries)
+
+[17. Redux](#17-redux)
+
+[18. Closures](#18-closures-in-react)
+
+[19. Handling Forms](#19-handling-forms)
+
+[20. Immutable State Updates](#20-immutable-state-updates)
+
+[21. Memoization](#21-memoization)
+
+[22. PropTypes and Type Checking](#22-prop-types-and-type-checking)
+
+[23. Server-Side Rendering](#23-server-side-rendering-ssr)
+
+[24. Code Splitting](#24-code-splitting)
+
+[25. React Performance Optimization](#25-react-performance-optimization)
+
+[26. Custom Hooks](#26-custom-hooks)
+
+[27. Portal Rendering with Modals](#27-portal-rendering-with-modals)
+
+[28. Internationalization](#28-internationalization-i18n)
+
+[29. Unit Testing with Jest and Enzyme](#29-unit-testing-with-jest-and-enzyme)
+
+[30. Handling Side Effects with Middleware](#30-handling-side-effects-with-middleware)
+
+---
 ### 1. **Components**
 
 **Explanation:**
