@@ -75,15 +75,17 @@ Ultimately, the best choice depends on your project specifics, team skills, and 
 
 [31. Pre-requisites](#31-pre-requisites)
 
+[32. Additional JS General Concepts](#32-additional-js-general-concepts)
+
 ---
 ### 1. **Components**
 
 **Explanation:**
 
-Components are the building blocks of a React application. They allow you to split the UI into independent, reusable pieces that can be managed separately. There are two types of components:
+**Components are the building blocks of a React application. They allow you to split the UI into independent, reusable pieces that can be managed separately.** There are two types of components:
 
 - **Class Components**: ES6 classes that extend `React.Component` and have access to lifecycle methods and state.
-- **Function Components**: Functions that return JSX and can use React features through hooks.
+- **Function Components: Functions that return JSX and can use React features through hooks.**
 
 **Examples:**
 
@@ -167,7 +169,7 @@ function Greeting(props) {
 
 **Explanation:**
 
-State is a built-in object that holds property values that belong to a component. When the state changes, the component re-renders.
+State is a built-in object that holds property values that belong to a component. **When the state changes, the component re-renders**. Normally used for user input data.
 
 **Example:**
 
@@ -1158,3 +1160,75 @@ This will install the latest stable release of Node.js (currently v22.x).
    ```
 
   ![create react project](./img/0_create_react_project_using_npm.png)
+
+6. **Install ES7+ React/Redux/React-Native snippets extension in VS CODE** 
+
+  The extension helps to create functional react components, e.g. write `rfc` inside a new empty file `TodoList.jsx` creates automatically:
+  ```jsx
+  import React from 'react'
+
+  export default function TodoCard() {
+    return (
+      <div>TodoCard</div>
+    )
+  }	
+  ```
+  
+7. **Add Google Custom "Fonts" for Fun in index.html (Already done!)**
+
+  Browse google fonts **`inter`** (select on `Get font` -it will add it to the family of fonts) and then also **`press`** (`Get font`) -2 font families will be added. The Click on `Get embed code`, copy entire link web code and paste it inside **`index.html`** head to add meta information in the page, i.e.:
+
+  ```html
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- Custom Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    </head>
+    <body>
+      <div id="root"></div>
+      <script type="module" src="/src/main.jsx"></script>
+    </body>
+  </html>
+  ```
+  Replace `index.css` with the one pre-defined here that uses previous fonts [index.css](https://github.com/paguerre3/reactjs-todolist/blob/main/src/index.css).
+
+8. **Add font-awesome CND 6.x to index.html**
+
+  Browse for [font-awesome](https://cdnjs.com/libraries/font-awesome), `Copy Link Tag` and place it in the head of the page (below custom fonts). 
+
+---
+
+### 32. **Additional JS General Concepts**
+
+**`let`**
+
+In JavaScript, **`let` is a keyword used to declare variables that are block-scoped, meaning the variable is only accessible within the block (e.g., a loop, an `if` statement) in which it is defined**. This is different from the `var` keyword, which is function-scoped or globally scoped, depending on where it's declared.
+
+Key points about `let`:
+1. **Block scope**: Variables declared with `let` are confined to the block of code (e.g., inside curly braces `{}`) in which they are defined.
+   ```javascript
+   if (true) {
+       let x = 10;
+       console.log(x); // Outputs 10
+   }
+   console.log(x); // Error: x is not defined
+   ```
+2. **Re-declaration not allowed**: You cannot redeclare a variable using `let` within the same scope.
+   ```javascript
+   let x = 5;
+   let x = 10; // Error: Identifier 'x' has already been declared
+   ```
+3. **Temporal dead zone (TDZ)**: Variables declared with `let` cannot be accessed before they are initialized. This period is called the *temporal dead zone*.
+   ```javascript
+   console.log(x); // ReferenceError: Cannot access 'x' before initialization
+   let x = 5;
+   ```
+4. **No hoisting issues**: Unlike `var`, which is hoisted (i.e., moved to the top of the scope) with `undefined` as its value, `let` does not allow access to the variable before it's defined.
+
+`let` is preferred in most modern JavaScript code because of its predictable scoping behavior compared to `var`, leading to fewer bugs, especially in loops or conditional blocks.
