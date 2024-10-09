@@ -9,9 +9,7 @@ If rapid prototyping and a no-code approach align with your project needs, consi
 Ultimately, the best choice depends on your project specifics, team skills, and long-term goals.
 
 ---
-Certainly! Below is an expanded explanation of each key React.js concept, complete with examples. Additionally, I have included more advanced topics like Redux and closures to provide a comprehensive understanding.
-
----
+# React compendium
 
 ### 1. **Components**
 
