@@ -1313,6 +1313,12 @@ This will install the latest stable release of Node.js (currently v22.x).
 
   Browse for [font-awesome](https://cdnjs.com/libraries/font-awesome), `Copy Link Tag` and place it in the head of the page (below custom fonts). 
 
+  Helpful for adding free icons like trash, edits, etc. Placing the `className`, e.g.:
+  ```html
+  <i class="fa-solid fa-trash-can"></i>
+  ```
+
+
 ---
 
 ### 32. **Additional JS General Concepts**
