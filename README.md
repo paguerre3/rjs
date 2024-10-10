@@ -19,7 +19,7 @@ Ultimately, the best choice depends on your project specifics, team skills, and 
 
 [3. Props (Properties)](#3-props-properties)
 
-[4. State](#4-state)
+[4. State and Effect](#4-state)
 
 [5. Lifecycle Methods](#5-lifecycle-methods)
 
@@ -165,11 +165,11 @@ function Greeting(props) {
 
 ---
 
-### 4. **State**
+### 4. **State and Effect**
 
 **Explanation:**
 
-State is a built-in object that holds property values that belong to a component. **When the state changes, the component re-renders**. Normally used for user input data.
+**State** is a built-in object that holds property values that belong to a component. **When the state changes, the component re-renders.** ***Normally used for user input data hold at page level (lost in refresh).***
 
 **Example:**
 
@@ -189,6 +189,117 @@ function Counter() {
   );
 }
 ```
+
+**`useEffect` is a hook that allows you to perform side effects in function components.** It replaces lifecycle methods like `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in class components. Side effects could be anything that interacts with external systems, such as data fetching, subscriptions, or manually updating the DOM. ***It can be used to store "state" data in the Local storage, so the information isn't lost when page is refreshed, i.e. preserved in the local storage***. 
+
+### Syntax:
+```javascript
+useEffect(() => {
+  // Effect code (side effect)
+  
+  return () => {
+    // Optional cleanup code (runs before the component unmounts or before re-running the effect on update)
+  };
+}, [dependencies]);
+```
+
+**Effect Arguments/Run and Cleanup:**
+
+1. **First Argument (Effect function): This is the function that contains your side effect logic.** It runs after the initial render and after every update by default.
+   
+2. **Second Argument (Dependency array)**: You can **control when the effect runs by passing an array of dependencies.**
+   - If the **array is empty, `useEffect` runs only "once"** after the initial render, mimicking `componentDidMount`.
+   - If **specific variables are in the array, `useEffect` runs every time those "variables change".**
+   - If **no array** is passed, it **runs after "every" render**.
+
+3. **Cleanup: If your effect involves subscriptions, timers, or any resource that needs cleanup, you can return a function from the effect.** React calls this cleanup function before running the effect the next time, and when the component is unmounted.
+
+***Examples:***
+
+1. **Basic usage (runs after each render/re-render of component)**:
+   ```javascript
+   useEffect(() => {
+     document.title = `You clicked ${count} times`;
+   }); // no array, runs after every render/re-render of component
+   ```
+
+2. **Run once (on mount) with cleanup**:
+   ```javascript
+   useEffect(() => {
+     const timer = setInterval(() => {
+       console.log('Timer running');
+     }, 1000);
+
+     // Cleanup function (runs when the component is unmounted)
+     return () => {
+       clearInterval(timer);
+     };
+   }, []); // empty dependency array runs once on mount
+   ```
+
+3. **Run on specific state change**:
+   ```javascript
+   useEffect(() => {
+     console.log('Count changed to', count);
+   }, [count]); // array with dependencies, i.e. only runs when 'count' changes
+   ```
+
+**Common Use Cases:**
+
+- Fetching data from an API (`useEffect` with async functions)
+- Subscribing to an event listener or WebSocket
+- Setting up intervals or timers
+- **Interacting with the DOM (updating document title, manipulating refs)**
+
+`useEffect` simplifies handling side effects and lifecycle events, especially when paired with React's functional component paradigm.
+
+Here’s an **example of how you can use `useEffect` in React to store data in local storage and retrieve it upon component mount**:
+
+***Example:***
+
+```javascript
+import React, { useState, useEffect } from 'react';
+
+const Counter = () => {
+  // Initialize the state from localStorage if it exists, otherwise start at 0
+  const [count, setCount] = useState(() => {
+    return parseInt(localStorage.getItem('count')) || 0;
+  });
+
+  // Store the count in localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('count', count);
+  }, [count]); // Effect runs when `count` changes
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </div>
+  );
+};
+
+export default Counter;
+```
+
+**Explanation:**
+
+1. **State Initialization with localStorage**:
+   - The `useState` hook is used to initialize the `count` state. Instead of setting an initial value directly (like `useState(0)`), we provide a function that checks `localStorage` for an existing value (`localStorage.getItem('count')`). If a value exists, it converts it to an integer using `parseInt`; otherwise, it defaults to 0.
+
+2. **Effect to Save in localStorage**:
+   - ⚠️ **`useEffect` is used to store the `count` value in `localStorage` whenever it changes. This ensures that after each increment or decrement, the updated value is saved, keeping the data persistent across page reloads.**
+   - The **dependency array `[count]` ensures that the effect only runs when the `count` "changes"**.
+
+3. **Retrieving from localStorage**:
+   - The function passed to **`useState` is only executed during the initial render. So, when the component mounts, it reads the value from `localStorage` (if it exists) and uses it as the initial state.**
+
+**Notes:**
+- The function in `useState` (`() => parseInt(localStorage.getItem('count')) || 0`) is called a *lazy initializer*, which helps optimize performance by not reading from `localStorage` on every render, but only on the initial render.
+- `localStorage` stores data as strings, so we use `parseInt` to convert the value back to a number.
+
+This approach ensures that the state persists between page reloads and browser sessions, which is common for counters, preferences, form data, etc.
 
 ---
 
