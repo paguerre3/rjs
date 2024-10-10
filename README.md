@@ -1318,6 +1318,12 @@ This will install the latest stable release of Node.js (currently v22.x).
   <i class="fa-solid fa-trash-can"></i>
   ```
 
+9. **Use Netlify to deploy the React app**
+
+  Create account on [Netlify](https://app.netlify.com/) and deploy importing from Git repository.
+  ***Note it also provides the capability of registering a DNS name like Route53 AWS.*** 
+
+
 
 ---
 
