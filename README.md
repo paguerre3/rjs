@@ -19,7 +19,7 @@ Ultimately, the best choice depends on your project specifics, team skills, and 
 
 [3. Props (Properties)](#3-props-properties)
 
-[4. State and Effect](#4-state)
+[4. State and Effect](#4-state-and-effect)
 
 [5. Lifecycle Methods](#5-lifecycle-methods)
 
