@@ -169,7 +169,7 @@ function Greeting(props) {
 
 **Explanation:**
 
-**State** is a built-in object that holds property values that belong to a component. **When the state changes, the component re-renders.** ***Normally used for user input data hold at page level (lost in refresh).***
+**State** is a built-in object that holds property values that belong to a component. **When the state changes, the component re-renders.** ***Normally used for user input data holding state/stateful (lost in refresh).***
 
 **Example:**
 
