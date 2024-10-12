@@ -73,9 +73,11 @@ Ultimately, the best choice depends on your project specifics, team skills, and 
 
 [30. Handling Side Effects with Middleware](#30-handling-side-effects-with-middleware)
 
-[31. Pre-requisites](#31-pre-requisites)
+[31. Fetch and Cache Data using Effects](#31-fetch-and-cache-data-using-effects)
 
-[32. Additional JS General Concepts](#32-additional-js-general-concepts)
+[32. Pre-requisites](#32-pre-requisites)
+
+[33. Additional JS General Concepts](#33-additional-js-general-concepts)
 
 ---
 ### 1. **Components**
@@ -1235,7 +1237,73 @@ By understanding and applying these key concepts, you'll be well-equipped to bui
 
 ---
 
-### 31. **Pre-requisites**
+### 31. **Fetch and Cache data using effects**
+
+Use `localStorage` in combination with `useEffect` to store and retrieve data from the cache once the NASA API has already provided today's picture.
+
+```jsx
+import { useEffect, useState } from 'react'
+import SideBar from './components/SideBar'
+import Footer from './components/Footer'
+import Main from './components/Main'
+
+function App() {
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  function handleToggleModal() {
+    setShowModal(!showModal)
+  }
+
+  useEffect(() => {
+    async function fetchApiData() {
+      const NASA_API_KEY = import.meta.env.VITE_NASA_API_KEY
+      const url = 'https://api.nasa.gov/planetary/apod?' + `api_key=${NASA_API_KEY}`
+
+      // cached data
+      const today = new Date().toDateString()
+      const localCacheKey = `nasa-cache-key-${today}`
+      const cacheItem = localStorage.getItem(localCacheKey)
+      if (cacheItem) {
+        const cachedData = JSON.parse(cacheItem)
+        setData(cachedData)
+        console.log('Fetched Cache DATA:' + localCacheKey + '\n', cachedData)
+        return
+      }
+      localStorage.clear()
+
+      try {
+        console.log('URL:', url)
+        const res = await fetch (url)
+        const apiData = await res.json()
+        localStorage.setItem(localCacheKey, JSON.stringify(apiData))
+        setData(apiData)
+        console.log('Fetched API DATA:' + localCacheKey + '\n' , apiData)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    fetchApiData()
+  }, []) // empty array dependency means render only once on mount (page load)
+  return (
+    <>
+      { data ? <Main data={data} /> : (
+        <div className="loadingState">
+          <i className="fa-solid fa-gear"></i>
+        </div>
+      )}
+      { showModal && <SideBar data={data} handleToggleModal={handleToggleModal}/> }
+      { data && <Footer data={data} handleToggleModal={handleToggleModal}/> }
+    </>
+  )
+}
+
+export default App
+```
+
+---
+
+### 32. **Pre-requisites**
 
 To install `Node.js` on Ubuntu via the command line, follow these steps:
 
@@ -1323,11 +1391,13 @@ This will install the latest stable release of Node.js (currently v22.x).
   Create account on [Netlify](https://app.netlify.com/) and deploy importing from Git repository.
   ***Note it also provides the capability of registering a DNS name like Route53 AWS.*** 
 
+10. **Generate a `NASA API Key` for the `nasa-app` client project** }
 
+  Register in [NASA API](https://api.nasa.gov/) and receive generated `key` via e-mail.
 
 ---
 
-### 32. **Additional JS General Concepts**
+### 33. **Additional JS General Concepts**
 
 **`let`**
 
