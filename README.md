@@ -6,6 +6,8 @@ For enterprise-level applications or when you need a complete **"framework"** ou
 
 If rapid prototyping and a **"no-code approach IA Oriented"** align with your project needs, consider **v0.dev**. 
 
+For a simple, **full-stack framework** designed for fast iterations and developer productivity **with IA help**, **Bolt.new** is a great option, offering a unified approach for building both the frontend and backend.
+
 Ultimately, the best choice depends on your project specifics, team skills, and long-term goals.
 
 ---
