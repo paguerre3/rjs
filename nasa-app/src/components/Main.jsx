@@ -10,6 +10,7 @@ function extractVideoId(url) {
 
 export default function Main(props) {
   const {data} = props
+  const videoId = data?.media_type === 'video' ? extractVideoId(data?.url) : null
   return (
     <div className='imgContainer'>
       {data?.media_type === 'image' ? (
@@ -17,10 +18,11 @@ export default function Main(props) {
       ) : data?.media_type === 'video' ? (
         <iframe
           className='bgImage'
-          src={`https://www.youtube.com/embed/${extractVideoId(data?.url)}?autoplay=1&mute=1`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}`}
           title={data?.title || 'YouTube video'}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen />
+          allowFullScreen
+        />
       ) : (
         <div className='bgImage'><p>Unsupported media type</p></div>
       )}
