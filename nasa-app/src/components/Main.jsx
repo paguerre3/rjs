@@ -24,7 +24,6 @@ function extractCuratedUrl(url) {
 
 export default function Main(props) {
   const {data} = props
-  const videoId = data?.media_type === 'video' ? extractVideoId(data?.url) : null
   return (
     <div className='imgContainer'>
       {data?.media_type === 'image' ? (
@@ -32,7 +31,7 @@ export default function Main(props) {
       ) : data?.media_type === 'video' ? (
         <iframe
           className='bgImage'
-          src={`${extractCuratedUrl(data?.url)}&autoplay=1&mute=1&loop=1&playlist=${videoId}`}
+          src={`${extractCuratedUrl(data?.url)}&autoplay=1&mute=1&loop=1&playlist=${extractVideoId(data?.url)}`}
           title={data?.title || 'video-demo'}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
