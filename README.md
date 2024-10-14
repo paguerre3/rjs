@@ -1336,72 +1336,72 @@ This will install the latest stable release of Node.js (currently v22.x).
 
 5. **Create React project, initialize and run using NPM**:
 
-   ```bash
-   npm create vite@latest {provide-new-project-name}
-   ```
+    ```bash
+    npm create vite@latest {provide-new-project-name}
+    ```
 
-  ![create react project](./img/0_create_react_project_using_npm.png)
+    ![create react project](./img/0_create_react_project_using_npm.png)
 
-  or simply:
+    or simply:
 
-  ```bash	
-  npm create vite@latest {provide-new-project-name} -- --template react
-  ``` 
+    ```bash	
+    npm create vite@latest {provide-new-project-name} -- --template react
+    ``` 
 
 6. **Install ES7+ React/Redux/React-Native snippets extension in VS CODE** 
 
-  The extension helps to create functional react components, e.g. write `rfc` inside a new empty file `TodoList.jsx` creates automatically:
-  ```jsx
-  import React from 'react'
+    The extension helps to create functional react components, e.g. write `rfc` inside a new empty file `TodoList.jsx` creates automatically:
+    ```jsx
+    import React from 'react'
 
-  export default function TodoCard() {
-    return (
-      <div>TodoCard</div>
-    )
-  }	
-  ```
+    export default function TodoCard() {
+      return (
+        <div>TodoCard</div>
+      )
+    }	
+    ```
   
 7. **Add Google Custom "Fonts" for Fun in index.html (Already done!)**
 
-  Browse google fonts **`inter`** (select on `Get font` -it will add it to the family of fonts) and then also **`press`** (`Get font`) -2 font families will be added. The Click on `Get embed code`, copy entire link web code and paste it inside **`index.html`** head to add meta information in the page, i.e.:
+    Browse google fonts **`inter`** (select on `Get font` -it will add it to the family of fonts) and then also **`press`** (`Get font`) -2 font families will be added. The Click on `Get embed code`, copy entire link web code and paste it inside **`index.html`** head to add meta information in the page, i.e.:
 
-  ```html
-  <!doctype html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <!-- Custom Fonts -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
-    </head>
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.jsx"></script>
-    </body>
-  </html>
-  ```
-  Replace `index.css` with the one pre-defined here that uses previous fonts [index.css](https://github.com/paguerre3/reactjs-todolist/blob/main/src/index.css).
+    ```html
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Custom Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+      </head>
+      <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.jsx"></script>
+      </body>
+    </html>
+    ```
+    Replace `index.css` with the one pre-defined here that uses previous fonts [index.css](https://github.com/paguerre3/reactjs-todolist/blob/main/src/index.css).
 
 8. **Add font-awesome CND 6.x to index.html**
 
-  Browse for [font-awesome](https://cdnjs.com/libraries/font-awesome), `Copy Link Tag` and place it in the head of the page (below custom fonts). 
+    Browse for [font-awesome](https://cdnjs.com/libraries/font-awesome), `Copy Link Tag` and place it in the head of the page (below custom fonts). 
 
-  Helpful for adding free icons like trash, edits, etc. Placing the `className`, e.g.:
-  ```html
-  <i class="fa-solid fa-trash-can"></i>
-  ```
+    Helpful for adding free icons like trash, edits, etc. Placing the `className`, e.g.:
+    ```html
+    <i class="fa-solid fa-trash-can"></i>
+    ```
 
 9. **Use Netlify to deploy the React app**
 
-  Create account on [Netlify](https://app.netlify.com/) and deploy importing from Git repository.
-  ***Note it also provides the capability of registering a DNS name like Route53 AWS.*** 
+    Create account on [Netlify](https://app.netlify.com/) and deploy importing from Git repository.
+    ***Note it also provides the capability of registering a DNS name like Route53 AWS.*** 
 
 10. **Generate a `NASA API Key` for the `nasa-app` client project [NASA project only]** 
 
-  Register in [NASA API](https://api.nasa.gov/) and receive generated `key` via e-mail.
+    Register in [NASA API](https://api.nasa.gov/) and receive generated `key` via e-mail.
 
 11. **Install Tailwind CSS with `vite` and React (Gym and Machine learning projects only)**
 
