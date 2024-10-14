@@ -1363,7 +1363,7 @@ This will install the latest stable release of Node.js (currently v22.x).
   
 7. **Add Google Custom "Fonts" for Fun in index.html (Already done!)**
 
-    Browse google fonts **`inter`** (select on `Get font` -it will add it to the family of fonts) and then also **`press`** (`Get font`) -2 font families will be added. The Click on `Get embed code`, copy entire link web code and paste it inside **`index.html`** head to add meta information in the page, i.e.:
+    Browse [google fonts](https://fonts.google.com/) **`inter`** (select on `Get font` -it will add it to the family of fonts) and then also **`press`** (`Get font`) -2 font families will be added. The Click on `Get embed code`, copy entire link web code and paste it inside **`index.html`** head to add meta information in the page, i.e.:
 
     ```html
     <!doctype html>
