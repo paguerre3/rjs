@@ -1342,7 +1342,8 @@ This will install the latest stable release of Node.js (currently v22.x).
 
   ![create react project](./img/0_create_react_project_using_npm.png)
 
-    or simply:
+  or simply:
+
   ```bash	
   npm create vite@latest {provide-new-project-name} -- --template react
   ``` 
