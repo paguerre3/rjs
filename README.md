@@ -1405,53 +1405,53 @@ This will install the latest stable release of Node.js (currently v22.x).
 
 11. **Install Tailwind CSS with `vite` and React (Gym and Machine learning projects only)**
 
-  **Tailwind CSS** is a utility-first CSS framework packed with classes like `flex, pt-4, text-center and rotate-90` 
-  that can be composed to build any design, directly in your markup.
-  
-  Follow [Install instruction of Tailwind CSS with `vite` and React](https://tailwindcss.com/docs/guides/vite).
-  
-  **1.** Install Tailwind CSS and its peer dependencies, then generate your `tailwind.config.js` and `postcss.config.js` files.
-    ```bash
-    npm install -D tailwindcss postcss autoprefixer
-    npx tailwindcss init -p
-    ```
+    **Tailwind CSS** is a utility-first CSS framework packed with classes like `flex, pt-4, text-center and rotate-90` 
+    that can be composed to build any design, directly in your markup.
+    
+    Follow [Install instruction of Tailwind CSS with `vite` and React](https://tailwindcss.com/docs/guides/vite).
+    
+    **1.** Install Tailwind CSS and its peer dependencies, then generate your `tailwind.config.js` and `postcss.config.js` files.
+      ```bash
+      npm install -D tailwindcss postcss autoprefixer
+      npx tailwindcss init -p
+      ```
 
-  **2.** Add the paths to all of your template files in your `tailwind.config.js` file.
-    ```js
-    /** @type {import('tailwindcss').Config} */
-    export default {
-      content: [
-        "./index.html",
-        "./src/**/*.{js,ts,jsx,tsx}",
-      ],
-      theme: {
-        extend: {},
-      },
-      plugins: [],
-    }
-    ```
+    **2.** Add the paths to all of your template files in your `tailwind.config.js` file.
+      ```js
+      /** @type {import('tailwindcss').Config} */
+      export default {
+        content: [
+          "./index.html",
+          "./src/**/*.{js,ts,jsx,tsx}",
+        ],
+        theme: {
+          extend: {},
+        },
+        plugins: [],
+      }
+      ```
 
-  **3.** Add the `@tailwind` directives for each of Tailwind’s layers to your `./src/index.css`.
-    ```css
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-    ```
-  **4.** Run your build process.
-    ```bash
-    npm run dev
-    ```
-  **5.** Start using Tailwind’s utility classes to style your content.
-    ```js
-    // App.jsx
-    export default function App() {
-      return (
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
-      )
-    }
-    ```
+    **3.** Add the `@tailwind` directives for each of Tailwind’s layers to your `./src/index.css`.
+      ```css
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+      ```
+    **4.** Run your build process.
+      ```bash
+      npm run dev
+      ```
+    **5.** Start using Tailwind’s utility classes to style your content.
+      ```js
+      // App.jsx
+      export default function App() {
+        return (
+          <h1 className="text-3xl font-bold underline">
+            Hello world!
+          </h1>
+        )
+      }
+      ```
 
 ---
 
