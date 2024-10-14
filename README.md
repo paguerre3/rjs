@@ -1342,6 +1342,11 @@ This will install the latest stable release of Node.js (currently v22.x).
 
   ![create react project](./img/0_create_react_project_using_npm.png)
 
+    or simply:
+  ```bash	
+  npm create vite@latest {provide-new-project-name} -- --template react
+  ``` 
+
 6. **Install ES7+ React/Redux/React-Native snippets extension in VS CODE** 
 
   The extension helps to create functional react components, e.g. write `rfc` inside a new empty file `TodoList.jsx` creates automatically:
@@ -1393,9 +1398,59 @@ This will install the latest stable release of Node.js (currently v22.x).
   Create account on [Netlify](https://app.netlify.com/) and deploy importing from Git repository.
   ***Note it also provides the capability of registering a DNS name like Route53 AWS.*** 
 
-10. **Generate a `NASA API Key` for the `nasa-app` client project** }
+10. **Generate a `NASA API Key` for the `nasa-app` client project [NASA project only]** 
 
   Register in [NASA API](https://api.nasa.gov/) and receive generated `key` via e-mail.
+
+11. **Install Tailwind CSS with `vite` and React (Gym and Machine learning projects only)**
+
+  **Tailwind CSS** is a utility-first CSS framework packed with classes like `flex, pt-4, text-center and rotate-90` 
+  that can be composed to build any design, directly in your markup.
+  
+  Follow [Install instruction of Tailwind CSS with `vite` and React](https://tailwindcss.com/docs/guides/vite).
+  
+  **1.** Install Tailwind CSS and its peer dependencies, then generate your `tailwind.config.js` and `postcss.config.js` files.
+    ```bash
+    npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init -p
+    ```
+
+  **2.** Add the paths to all of your template files in your `tailwind.config.js` file.
+    ```js
+    /** @type {import('tailwindcss').Config} */
+    export default {
+      content: [
+        "./index.html",
+        "./src/**/*.{js,ts,jsx,tsx}",
+      ],
+      theme: {
+        extend: {},
+      },
+      plugins: [],
+    }
+    ```
+
+  **3.** Add the `@tailwind` directives for each of Tailwind’s layers to your `./src/index.css`.
+    ```css
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    ```
+  **4.** Run your build process.
+    ```bash
+    npm run dev
+    ```
+  **5.** Start using Tailwind’s utility classes to style your content.
+    ```js
+    // App.jsx
+    export default function App() {
+      return (
+        <h1 className="text-3xl font-bold underline">
+          Hello world!
+        </h1>
+      )
+    }
+    ```
 
 ---
 
