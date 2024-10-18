@@ -1534,6 +1534,9 @@ Some of the key features include:
 - **Support for pre-trained models from Hugging Face's Model Hub.**
 - **Efficient on-device inference, potentially using WebAssembly (WASM) or WebGPU for performance.**
 
-If you are interested in exploring or integrating it into your projects, I can help with setup guidance or specific tasks!
+```bash
+npm install @xenova/transformers
+```
 
 [Sample Code](./free-scribe/src/utils/translate.worker.js)
+
