@@ -1522,3 +1522,18 @@ For example:
 - If the current URL is `https://example.com/page`, setting `window.location.href = '#generate'` will change the URL to `https://example.com/page#generate` and, **if present, scroll to the element with the `id="generate"`**.
 
 This is often used for in-page navigation or **to create "anchor links" that direct the user to a specific part of the page.**
+
+
+
+**IV. `@xenova/transformers`**
+
+`@xenova/transformers` is a JavaScript/TypeScript library designed to facilitate the use of transformer models directly in the browser or in Node.js environments. It allows developers to use models from Hugging Face's `transformers` library for tasks such as natural language processing (NLP), text generation, classification, and more. **The key advantage is that the models run client-side without requiring a backend server, making it ideal for applications where privacy and real-time performance are critical.**
+
+Some of the key features include:
+- Browser and Node.js compatibility.
+- **Support for pre-trained models from Hugging Face's Model Hub.**
+- **Efficient on-device inference, potentially using WebAssembly (WASM) or WebGPU for performance.**
+
+If you are interested in exploring or integrating it into your projects, I can help with setup guidance or specific tasks!
+
+[Sample Code](./free-scribe/src/utils/translate.worker.js)
